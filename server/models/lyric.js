@@ -20,4 +20,13 @@ LyricSchema.statics.like = function(id) {
   })
 }
 
+LyricSchema.statics.editLyric = function (id,content) {
+    const Lyric = mongoose.model('lyric')
+    return Lyric.findById(id)
+    .then(lyric =>{
+      lyric.content = content;
+      return lyric.save();
+    })
+}
+
 mongoose.model('lyric', LyricSchema);
