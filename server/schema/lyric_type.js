@@ -8,10 +8,10 @@ const {
   GraphQLString
 } = graphql;
 
-const Lyric = mongoose.model('lyric');
+const LyricModel = mongoose.model('lyric');
 
 const LyricType = new GraphQLObjectType({
-  name:  'LyricType',
+  name: 'LyricType',
   fields: () => ({
     id: { type: GraphQLID },
     likes: { type: GraphQLInt },
@@ -20,7 +20,7 @@ const LyricType = new GraphQLObjectType({
       type: require('./song_type'),
       resolve(parentValue) {
         console.log(parentValue);
-        return Lyric.findById(parentValue.id).populate('song')
+        return LyricModel.findById(parentValue.id).populate('song')
           .then(lyric => {
             console.log(lyric)
             return lyric.song
