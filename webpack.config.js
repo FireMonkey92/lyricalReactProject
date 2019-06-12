@@ -7,7 +7,7 @@ module.exports = {
   entry: './client/index.js',
   output: {
     path: '/',
-    filename: 'index.js'
+    filename: 'build.js'
   },
   module: {
     rules: [
