@@ -8,7 +8,8 @@
     "url": "https://github.com/StephenGrider/Lyrical-GraphQL"
   },
   "scripts": {
-    "dev": "nodemon index.js --ignore client"
+    "dev": "nodemon index.js --ignore client",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",

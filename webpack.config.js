@@ -1,10 +1,12 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var path = require('path');
+
 
 module.exports = {
   entry: './client/index.js',
   output: {
-    path: '/',
+    path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
   },
   module: {
