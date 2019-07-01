@@ -9,18 +9,23 @@
   margin: 0.5rem 5px 1rem 5px !important;
 }
 .flex-list {
-  display: flex;
+  display: flex !important;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+}
+
+.flex-list a {
+  flex-grow: 100;
 }
 .collection .s-title {
   font-weight: 400;
   flex-grow: 1;
   font-size: 20px;
+  color: black;
 }
 .s-title {
   align-items: center;
@@ -43,6 +48,7 @@
 .list-operation {
   display: flex;
   width: 70px;
+  flex-grow: 1;
 }
 .list-operation .op-item {
   flex: 1;

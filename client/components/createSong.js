@@ -35,11 +35,11 @@ class CreateSong extends Component {
                 <Link to="/" className="btn-floating btn-large black" style={{ marginTop: "5px" }}>
                     <i className="material-icons">keyboard_backspace</i>
                 </Link>
-                <h3> Create A New Song..!!</h3>
+                <h4> Create A New Song..!!</h4>
 
-                <form onSubmit={this.handleOnSubmit.bind(this)}>
+                <form onSubmit={this.handleOnSubmit.bind(this)} >
                     <label htmlFor=""> Song Title : </label>
-                    <input type="text" value={this.state.songTitle} onChange={e => this.handleTextChangeInput(e)} />
+                    <input style={{ fontSize: "25px" }} type="text" value={this.state.songTitle} onChange={e => this.handleTextChangeInput(e)} />
                 </form>
             </div >
         )

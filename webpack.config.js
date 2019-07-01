@@ -6,10 +6,16 @@ var path = require('path');
 module.exports = {
   entry: './client/index.js',
   output: {
-    path: '/',
+    path: path.resolve(__dirname, 'dist'),
     filename: 'build.js'
   },
   module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader'
+      }
+    ],
     rules: [
       {
         use: 'babel-loader',
