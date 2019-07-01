@@ -4,13 +4,25 @@ import {graphql} from 'react-apollo';
 
 class LyricsListRander extends Component {
 
-    onLikeClick(id){
+    onLikeClick(id, likes){
+
         this.props.mutate({
-            variables : {id}
-        })
+            variables : {id},
+            optimisticResponse : {
+                __typename : 'mutation',
+                likeLyric  : {
+                    id : id,
+                    __typename : 'LyricType' ,
+                    likes : likes + 1
+                }
+            }
+        });
     }
     onDeleteClick(id){
-        this.props.mutate({variables : {id}});
+        // this.props.mutate({
+        //     variables : {id},
+            
+        //  });
     }
     renderSongsLyrics({ lyrics }) {
         return lyrics.map((item) => {
@@ -21,7 +33,7 @@ class LyricsListRander extends Component {
                     </div>
                     <div className="v-box" style={{ textAlign: "right" }}>
                        
-                        <i onClick={()=>this.onLikeClick(item.id)} style={{ cursor: "pointer" }} className="material-icons">thumb_up_alt</i>
+                        <i onClick={()=>this.onLikeClick(item.id , item.likes)} style={{ cursor: "pointer" }} className="material-icons">thumb_up_alt</i>
                         {/* <i onClick={()=>this.onDeleteClick(item.id)} style={{ cursor: "pointer" }} className="material-icons">delete_forever</i> */}
                         <span className="op-item" style={{ marginRight: "5px" }}> {item.likes} </span>
                     </div>
